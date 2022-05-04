@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApiRouteComponent } from './api-route.component';
+import { ApifeedbackComponent } from './apifeedback.component';
 
-describe('ApiRouteComponent', () => {
-  let component: ApiRouteComponent;
-  let fixture: ComponentFixture<ApiRouteComponent>;
+describe('ApifeedbackComponent', () => {
+  let component: ApifeedbackComponent;
+  let fixture: ComponentFixture<ApifeedbackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApiRouteComponent ]
+      declarations: [ ApifeedbackComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApiRouteComponent);
+    fixture = TestBed.createComponent(ApifeedbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
