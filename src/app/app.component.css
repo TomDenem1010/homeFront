@@ -1,0 +1,37 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  mat-drawer {
+    width: 15%;
+    background-color: black;
+  }
+  
+  mat-drawer-content {
+    width: 85%;
+    height: 100vh;
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .card-container {
+    height: 100vh;
+  }
+
+  .card-header {
+    height: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-content {
+    flex: 1;
+    overflow:auto;
+    height: calc(100vh - 12rem);
+  }
+
+  .card-footer {
+    height: 4rem;
+    margin-top: 1rem;
+  }
