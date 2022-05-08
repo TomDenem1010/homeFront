@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApicallService } from 'src/app/service/apicall.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  menuList: any;  
+
+  constructor(private apiCall: ApicallService) { }
 
   ngOnInit(): void {
+    this.apiCall.getApiCall('menu').subscribe((response: any) => {
+      this.menuList = response.menuDtos;
+    })
   }
 
 }

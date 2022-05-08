@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { ApifeedbackComponent } from './component/main/apifeedback/apifeedback.component';
 import { MessagefeedbackComponent } from './component/main/messagefeedback/messagefeedback.component';
 import { MenubuttonComponent } from './component/helper/menubutton/menubutton.component';
+import { VideoComponent } from './page/video/video.component';
+import { MagicComponent } from './page/magic/magic.component';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { MenubuttonComponent } from './component/helper/menubutton/menubutton.co
     ContentComponent,
     ApifeedbackComponent,
     MessagefeedbackComponent,
-    MenubuttonComponent
+    MenubuttonComponent,
+    VideoComponent,
+    MagicComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { MenubuttonComponent } from './component/helper/menubutton/menubutton.co
     MatSidenavModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

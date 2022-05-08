@@ -1,4 +1,5 @@
-<app-menubutton menuButtonName="szia"></app-menubutton>
-<app-menubutton menuButtonName="szia1111"></app-menubutton>
-<app-menubutton menuButtonName="szia2"></app-menubutton>
-<app-menubutton menuButtonName="szia22"></app-menubutton>
+<div *ngIf="menuList">
+    <div *ngFor="let menu of menuList">
+        <app-menubutton [name]="menu.name" [path]="menu.path"></app-menubutton>
+    </div>
+</div>
