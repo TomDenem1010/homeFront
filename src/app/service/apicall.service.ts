@@ -13,4 +13,8 @@ export class ApicallService {
   getApiCall(path: string) {
     return this.http.get(this.baseUrl + path);
   }
+
+  postApiCall(path: string, body = null) {
+    return this.http.post(this.baseUrl + path, body);
+  }
 }
