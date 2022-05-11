@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/service/common.service';
 
 @Component({
   selector: 'app-messagefeedback',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagefeedbackComponent implements OnInit {
 
-  constructor() { }
+  messageFeedback : String = '';
+
+  constructor(private common : CommonService) {
+    this.common.messageEvent.subscribe({
+      next : (event : String) => {
+        this.messageFeedback = event;
+      }
+    })
+  }
 
   ngOnInit(): void {
   }

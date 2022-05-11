@@ -19,15 +19,18 @@ export class AuthGuardService implements CanActivate {
   }
 
   isLocalStorageData(): boolean {
-    if(!localStorage.getItem("id")) {
+    if(!localStorage.getItem("name")) {
         return false;
     }
-    if(!localStorage.getItem("secret")) {
+    if(!localStorage.getItem("password")) {
         return false;
     }
-    if(!localStorage.getItem("time")) {
+    if(!localStorage.getItem("start")) {
         return false;
-    }   
+    }  
+    if(!localStorage.getItem("end")) {
+      return false;
+    }    
 
     return true;
   }
