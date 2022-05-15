@@ -43,12 +43,12 @@ export class MenuComponent implements OnInit {
   getMenu() : void {
     this.apiCall.getApiCall('menu').subscribe((response: any) => {
       this.menuList = response.menuDtos;
-      this.goToFirstHit(response.menuDtos[0].path);
+      this.goToFirstHit(response.menuDtos);
     })
   }
 
-  goToFirstHit(menu : String) {
-    this.router.navigate([menu]);
+  goToFirstHit(menuDtos : any) {
+    this.router.navigate([menuDtos[0].path]);
   } 
 
   clearMenu() : void {

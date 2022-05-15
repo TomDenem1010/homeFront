@@ -23,6 +23,7 @@ import { MenubuttonComponent } from './component/helper/menubutton/menubutton.co
 import { VideoComponent } from './page/video/video.component';
 import { MagicComponent } from './page/magic/magic.component';
 import { LoginComponent } from './page/login/login.component';
+import { LogoutComponent } from './component/main/logout/logout.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginComponent } from './page/login/login.component';
     MenubuttonComponent,
     VideoComponent,
     MagicComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { LoginComponent } from './page/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

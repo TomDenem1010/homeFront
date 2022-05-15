@@ -1,4 +1,8 @@
 <div *ngIf="menuList">
+    <div>
+        <app-logout></app-logout>
+    </div>
+    
     <div *ngFor="let menu of menuList">
         <app-menubutton [name]="menu.name" [path]="menu.path"></app-menubutton>
     </div>

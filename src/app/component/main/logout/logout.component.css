@@ -1,0 +1,12 @@
+.logout {
+    color: yellow;
+    padding: 1rem;
+    margin: 0.125rem;
+    border-style: solid;
+    border-image: 
+    linear-gradient(
+      to bottom, 
+      yellow, 
+      black
+    ) 1 100%;
+}
