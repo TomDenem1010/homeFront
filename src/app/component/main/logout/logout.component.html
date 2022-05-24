@@ -2,5 +2,12 @@
     <button mat-button class="logoutbutton" (click)="logout()">
         <mat-icon>logout</mat-icon>
     </button>
-    {{ autologoutMinute }}:{{ autologoutSecond }}
+    <div class="logouttime">
+        <div *ngIf="timeToLogoutSecond >= 10">
+            0{{ timeToLogoutMinute }}:{{ timeToLogoutSecond }}
+        </div>
+        <div *ngIf="timeToLogoutSecond < 10">
+            0{{ timeToLogoutMinute }}:0{{ timeToLogoutSecond }}
+        </div>
+    </div>
 </div>

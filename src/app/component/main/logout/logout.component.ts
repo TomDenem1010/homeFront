@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApicallService } from 'src/app/service/apicall.service';
 import { CommonService } from 'src/app/service/common.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-logout',
@@ -10,63 +11,39 @@ import { CommonService } from 'src/app/service/common.service';
 })
 export class LogoutComponent implements OnInit {
 
-  autologoutMinute : String = '';
-  autologoutMinuteHelper : any;
-  autologoutSecond : String = '';
-  autologoutSecondHelper : any;
+  timeToLogoutMinute : number = 0;
+  timeToLogoutSecond : number = 0;
   interval : any = this.setLogoutTimeout();
 
   constructor(
     private router: Router,
     private common: CommonService,
     private apiCall: ApicallService) { 
-      this.common.apiEvent.subscribe({
-        next: () => {
-          this.initAutoLogout();
-        }
-      })
     }
 
   ngOnInit(): void {
-    this.initAutoLogout();
+    this.setTimeToLogout()
   }
 
-  initAutoLogout() : void {
-    this.setAutoLogout(5);
-  }
-
-  setAutoLogout(minute : number) : void {
-    this.autologoutMinuteHelper = minute - 1;
-
-    if(this.autologoutMinuteHelper >= 10) {
-      this.autologoutMinute = `${minute - 1}`;
-    } else if (this.autologoutMinuteHelper > 0){
-      this.autologoutMinute = `0${minute - 1}`;
-    } else {
-      this.autologoutMinute = '00';
-    }
-    
-    this.autologoutSecondHelper = 59;
-    this.autologoutSecond = '59';
+  setTimeToLogout() : void {
+      this.timeToLogoutMinute = Math.floor(this.getLogoutDuration() / 60 );
+      this.timeToLogoutSecond = Math.floor(this.getLogoutDuration() - (this.timeToLogoutMinute * 60));
   }
 
   setLogoutTimeout() : void {
     this.interval = setInterval(() => {
-      if(this.autologoutMinuteHelper != 0 || this.autologoutSecondHelper != 0) {
-        if(this.autologoutSecondHelper != 0) {
-          this.autologoutSecondHelper--;
-          if(this.autologoutSecondHelper >=10) {
-            this.autologoutSecond = `${this.autologoutSecondHelper}`;
-          } else {
-            this.autologoutSecond = `0${this.autologoutSecondHelper}`;
-          }
-        } else {
-          this.setAutoLogout(this.autologoutMinuteHelper);
-        }
+      if(this.getLogoutDuration() > 0) {
+        this.setTimeToLogout();
       } else {
         this.logout();
       }
     },1000)
+  }
+
+  getLogoutDuration() : number {
+      let nowMoment = moment();
+      let endMoment = moment(localStorage.getItem("end"));
+      return moment.duration(endMoment.diff(nowMoment)).asSeconds();
   }
 
   logout() : void {

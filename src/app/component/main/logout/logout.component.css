@@ -10,3 +10,12 @@
       black
     ) 1 100%;
 }
+
+.logoutbutton {
+  float:left;
+}
+
+.logouttime {
+  margin-top: 0.5rem;
+  float:inline-end;
+}
