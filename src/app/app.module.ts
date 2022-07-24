@@ -27,6 +27,7 @@ import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './component/main/logout/logout.component';
 import { SelectfieldComponent } from './component/helper/selectfield/selectfield.component';
 import { VideoplayerComponent } from './component/main/videoplayer/videoplayer.component';
+import { VideofilterComponent } from './component/main/videofilter/videofilter.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { VideoplayerComponent } from './component/main/videoplayer/videoplayer.c
     LogoutComponent,
     SelectfieldComponent,
     VideoplayerComponent,
+    VideofilterComponent
   ],
   imports: [
     BrowserModule,

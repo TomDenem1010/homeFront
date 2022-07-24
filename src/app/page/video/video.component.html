@@ -1,48 +1,12 @@
-<mat-form-field appearance="fill">
-    <mat-label>Category</mat-label>
-    <mat-select (selectionChange)="onCategoryChange($event)" [(ngModel)]="actualCategory">
-        <mat-option *ngFor="let category of categories" [value]="category">
-            {{category}}
-        </mat-option>
-    </mat-select>
-    <button mat-button
-        matSuffix
-        mat-icon-button
-        (click)="onCategoryChange(null)">
-        <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-    <mat-label>Actor</mat-label>
-    <mat-select (selectionChange)="onActorChange($event)" [(ngModel)]="actualActor">
-        <mat-option *ngFor="let actor of actors" [value]="actor">
-            {{actor}}
-        </mat-option>
-    </mat-select>
-    <button mat-button
-        matSuffix
-        mat-icon-button
-        (click)="onActorChange(null)">
-        <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-    <mat-label>Movie</mat-label>
-    <mat-select (selectionChange)="onMovieChange($event)" [(ngModel)]="actualMovie">
-        <mat-option *ngFor="let movie of movies" [value]="movie">
-            {{movie}}
-        </mat-option>
-    </mat-select>
-    <button mat-button
-        matSuffix
-        mat-icon-button
-        (click)="onMovieChange(null)">
-        <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
-
-<div *ngIf="actualMovie">
-    <app-videoplayer [path]="actualMoviePath"></app-videoplayer>
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+        <app-videofilter (movieSelected)="movieSelected($event)"></app-videofilter>
+      </div>
+      <div class="col-9">
+        <div *ngIf="moviePath">
+            <app-videoplayer [path]="moviePath"></app-videoplayer>
+        </div>
+      </div>
+    </div>
 </div>
