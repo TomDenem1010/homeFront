@@ -11,10 +11,6 @@ import * as moment from 'moment';
 })
 export class LogoutComponent implements OnInit {
 
-  timeToLogoutMinute : number = 0;
-  timeToLogoutSecond : number = 0;
-  interval : any = this.setLogoutTimeout();
-
   constructor(
     private router: Router,
     private common: CommonService,
@@ -22,28 +18,6 @@ export class LogoutComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.setTimeToLogout()
-  }
-
-  setTimeToLogout() : void {
-      this.timeToLogoutMinute = Math.floor(this.getLogoutDuration() / 60 );
-      this.timeToLogoutSecond = Math.floor(this.getLogoutDuration() - (this.timeToLogoutMinute * 60));
-  }
-
-  setLogoutTimeout() : void {
-    this.interval = setInterval(() => {
-      if(this.getLogoutDuration() > 0) {
-        this.setTimeToLogout();
-      } else {
-        this.logout();
-      }
-    },1000)
-  }
-
-  getLogoutDuration() : number {
-      let nowMoment = moment();
-      let endMoment = moment(localStorage.getItem("end"));
-      return moment.duration(endMoment.diff(nowMoment)).asSeconds();
   }
 
   logout() : void {

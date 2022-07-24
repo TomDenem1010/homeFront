@@ -14,12 +14,12 @@ export class ApicallService {
     private common : CommonService) {}
 
   getApiCall(path: string) {
-    this.apiEvent(path)
+    this.apiEvent(path);
     return this.http.get(this.baseUrl + path);
   }
 
-  postApiCall(path: string, body = null) {
-    this.apiEvent(path)
+  postApiCall(path: string, body : any = null) {
+    this.apiEvent(path);
     return this.http.post(this.baseUrl + path, body);
   }
 

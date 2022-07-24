@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ApifeedbackComponent } from './component/main/apifeedback/apifeedback.component';
 import { MessagefeedbackComponent } from './component/main/messagefeedback/messagefeedback.component';
@@ -24,6 +25,7 @@ import { VideoComponent } from './page/video/video.component';
 import { MagicComponent } from './page/magic/magic.component';
 import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './component/main/logout/logout.component';
+import { SelectfieldComponent } from './component/helper/selectfield/selectfield.component';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { LogoutComponent } from './component/main/logout/logout.component';
     MagicComponent,
     LoginComponent,
     LogoutComponent,
+    SelectfieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,9 @@ import { LogoutComponent } from './component/main/logout/logout.component';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
