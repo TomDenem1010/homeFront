@@ -26,6 +26,7 @@ import { MagicComponent } from './page/magic/magic.component';
 import { LoginComponent } from './page/login/login.component';
 import { LogoutComponent } from './component/main/logout/logout.component';
 import { SelectfieldComponent } from './component/helper/selectfield/selectfield.component';
+import { VideoplayerComponent } from './component/main/videoplayer/videoplayer.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SelectfieldComponent } from './component/helper/selectfield/selectfield
     LoginComponent,
     LogoutComponent,
     SelectfieldComponent,
+    VideoplayerComponent,
   ],
   imports: [
     BrowserModule,

@@ -42,3 +42,7 @@
         <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
+
+<div *ngIf="actualMovie">
+    <app-videoplayer [path]="actualMoviePath"></app-videoplayer>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { ApicallService } from 'src/app/service/apicall.service';
 
 @Component({
@@ -20,6 +20,8 @@ export class VideoComponent implements OnInit {
   actualCategory : String = '';
   movies : String[] = [];
   actualMovie : String = '';
+
+  actualMoviePath : String = '';
 
   ngOnInit(): void {
     this.initVideoResponse('videos');
@@ -76,7 +78,15 @@ export class VideoComponent implements OnInit {
   onCategoryChange(event : any) {
     if(!event) {
       this.actualCategory = '';
-      this.initVideoResponse('videos');
+      this.actualMovie = '';
+      if(this.actualActor) {
+        this.initVideoResponse(
+          'videos/filtered',
+          this.getFilterBody(this.actualCategory, this.actualActor)
+        );
+      } else {
+        this.initVideoResponse('videos');
+      }
     } else {
       this.initVideoResponse(
         'videos/filtered',
@@ -88,7 +98,15 @@ export class VideoComponent implements OnInit {
   onActorChange(event : any) {
     if(!event) {
       this.actualActor = '';
-      this.initVideoResponse('videos');
+      this.actualMovie = '';
+      if(this.actualCategory) {
+        this.initVideoResponse(
+          'videos/filtered',
+          this.getFilterBody(this.actualCategory, this.actualActor)
+        );
+      } else {
+        this.initVideoResponse('videos');
+      }
     } else {
       this.initVideoResponse(
         'videos/filtered',
@@ -98,7 +116,25 @@ export class VideoComponent implements OnInit {
   }
 
   onMovieChange(event : any) {
-    console.log(event.value)
+    if(!event) {
+      this.actualMovie = '';
+      this.actualMoviePath = '';
+    } else {
+      this.actualMovie = event.value;
+      this.actualMoviePath = 'http://127.0.0.1:8081/' + this.findPath();
+    }
+  }
+
+  findPath() : String {
+    let path : String = '';
+
+    this.videoResponse.videos.forEach((movie : any) => {
+      if(movie.title === this.actualMovie) {
+        path = movie.path;
+      }
+    })
+
+    return path;
   }
 
   getFilterBody(category : String, actor : String) {
